@@ -1,4 +1,16 @@
-$navbar_default_bg: #08088A;
+$navbar_default_bg: black;
 @import "bootstrap-sprockets";
-
 @import "bootstrap";
+
+.jumbotron {
+  background-image: asset-url('web.jpg');
+  background-size: cover;
+  height: 550px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.jumbotron h1 {
+  letter-spacing: -1px;
+  color: white;
+}
