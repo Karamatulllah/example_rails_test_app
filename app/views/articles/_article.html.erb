@@ -5,12 +5,13 @@
 </tr>
 <% obj.each do |article| %>
 <tr>
-  <td><%= article.title %></td>
-  <td><%= article.description %></td>
-  <td><%= link_to "edit", edit_article_path(article) %></td>
-  <td><%= link_to "show", article_path(article) %></td>
-  <td><%= link_to "delete", article_path(article), method: :delete, data: {confirm: "are you sure to delete that??"} %></td>
-
-</tr>
-<% end %>
-</table>
+   <td><%= article.title %></td>
+   <td><%= truncate(article.description, length:100) %></td>
+    <% if logged_in? && current_user == article.user%>
+      <td class="btn btn-info btncustom"><%= link_to "edit", edit_article_path(article) %></td>
+      <td class="btn btn-info btncustom"><%= link_to "show", article_path(article) %></td>
+      <td class="btn btn-info btncustom"><%= link_to "delete", article_path(article), method: :delete, data: {confirm: "are you sure to delete that??"} %></td>
+    <% end %>
+ </tr>
+ <% end %>
+ </table>
