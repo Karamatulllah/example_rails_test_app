@@ -7,7 +7,7 @@
 <tr>
    <td><%= article.title %></td>
    <td><%= truncate(article.description, length:100) %></td>
-    <% if logged_in? && current_user == article.user%>
+    <% if logged_in? &&  (current_user == article.user || current_user.admin?) %>
       <td class="btn btn-info btncustom"><%= link_to "edit", edit_article_path(article) %></td>
       <td class="btn btn-info btncustom"><%= link_to "show", article_path(article) %></td>
       <td class="btn btn-info btncustom"><%= link_to "delete", article_path(article), method: :delete, data: {confirm: "are you sure to delete that??"} %></td>
