@@ -1,6 +1,6 @@
 class AddCreatedatUpdatedatToArticles < ActiveRecord::Migration[5.1]
   def change
-    add_column :articles, :createdat, :datetime
-    add_column :articles, :updatedat, :datetime    
+    add_column :articles, :created_at, :datetime
+    add_column :articles, :updated_at, :datetime
   end
 end

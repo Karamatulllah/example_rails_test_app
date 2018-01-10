@@ -48,14 +48,21 @@ def show
 end
 
 
+
+
+
 private
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
 
+
+
   def set_user
     @user = User.find(params[:id])
   end
+
+
   def require_same_user
     if current_user != @user and !current_user.admin?
       flash[:danger] = "You can only edit/delete your own account"
@@ -64,12 +71,12 @@ private
     end
   end
 
+
   def require_admin
     if logged_in? and !current_user.admin?
       flash[:danger] = "only admin can perform that action"
       redirect_to root_path
     end
-
   end
 
 end
